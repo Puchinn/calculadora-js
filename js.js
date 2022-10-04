@@ -78,9 +78,6 @@ btnC.addEventListener("click",()=>{
     display.borrarTodo();
 })
 
-
-
-
 btnNumeros.forEach(btn =>{
     btn.addEventListener("click",()=>{
         display.agregarNumero(btn.innerHTML);
@@ -94,5 +91,25 @@ btnOperador.forEach(btn => {
     });
 })
 
-
-
+document.addEventListener("keydown",(event)=>{
+    btnNumeros.forEach(btn=>{
+        if(event.key === btn.innerHTML){
+            display.agregarNumero(btn.innerHTML);
+        }
+    });
+    btnOperador.forEach(btn =>{
+        if(event.key === btn.innerHTML){
+            display.computar(btn.value);
+            operadorhtml.innerHTML = btn.innerHTML;
+        }
+    })
+    if(event.key === "c"){
+        display.borrarTodo();
+    };
+    if(event.key === "Enter"){
+        display.computar("igual");
+    }
+    if(event.key === "Backspace"){
+        display.borrar();
+    }
+});
