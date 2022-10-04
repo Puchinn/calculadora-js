@@ -91,7 +91,7 @@ btnOperador.forEach(btn => {
     });
 })
 
-document.addEventListener("keydown",(event)=>{
+window.addEventListener("keydown",(event)=>{
     btnNumeros.forEach(btn=>{
         if(event.key === btn.innerHTML){
             display.agregarNumero(btn.innerHTML);
