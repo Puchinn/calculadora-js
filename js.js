@@ -30,16 +30,14 @@ class Display {
         this.valorFinal = "";
         this.tipoOperacion = undefined;
     };
-
+    imprimirValores(){
+        this.displayValorActual.innerHTML = this.valorActual;
+        this.displayValorFinal.innerHTML = this.valorFinal;
+    };
     agregarNumero(num){
         if(num === "." && this.valorActual.includes(".")) return
         this.valorActual = this.valorActual.toString() + num.toString();
         this.imprimirValores();
-    };
-
-    imprimirValores(){
-        this.displayValorActual.innerHTML = this.valorActual;
-        this.displayValorFinal.innerHTML = this.valorFinal;
     };
     borrar(){
         this.valorActual = this.valorActual.toString().slice(0,-1);
@@ -64,7 +62,7 @@ class Display {
         const valorFinal = this.valorFinal = parseFloat(this.valorFinal);
 
         if(isNaN(valorActual)|| isNaN(valorFinal))return
-        this.valorActual = this.calculadora[this.tipoOperacion](valorActual,valorFinal);
+        this.valorActual = this.calculadora[this.tipoOperacion](valorFinal,valorActual);
     }
 };
 
